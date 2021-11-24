@@ -530,11 +530,14 @@ const highLightTiles = (res) => {
 
             //Selects Tiles Based on Each val in subArr
             const tiles = document.querySelector(val);
-
+            const oldShadow = tiles.style.boxShadow;
             //If Tile Has No Children Nodes Highlights Tile as Position Able to be Moved To
             if (tiles.children.length < 1) {
                 //Changes BoxShadow of Spaces Allowed in Move
                 tiles.style.boxShadow = '1px 1px 7px 6px rgba(211, 11, 115, 0.8), inset 1px 1px 7px 6px rgba(211, 11, 115, 0.8';
+                setTimeout(() => {
+                    tiles.style.boxShadow = oldShadow;
+                }, 3000)
             } else {
                 //Increments to Next Sub Array in res Arr
                 return i++;
